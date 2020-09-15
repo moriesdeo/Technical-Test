@@ -1,0 +1,133 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.axiata"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/\""
+            buildConfigField "String", "TSDB_API_KEY", "\"3/\""
+            buildConfigField "String", "API_KEY", "\"d326fff658f490c8e464a6fa32642ca7\""
+
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/\""
+            buildConfigField "String", "TSDB_API_KEY", "\"3/\""
+            buildConfigField "String", "API_KEY", "\"d326fff658f490c8e464a6fa32642ca7\""
+
+            debuggable = true
+        }
+    }
+
+// To inline the bytecode built with JVM target 1.8 into
+// bytecode that is being built with JVM target 1.6. (e.g. navArgs)
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+    implementation 'androidx.navigation:navigation-ui:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //RXJAVA KOTLIN
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.4.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.12'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+    implementation 'io.reactivex:rxandroid:1.2.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    //OKHTTP
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    //network request
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //Preference Manager
+    implementation "androidx.preference:preference-ktx:1.1.1"
+
+    // Dependencies for Paging
+    implementation "androidx.paging:paging-runtime:2.1.2"
+
+    // Dependencies for Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Dependencies for Architecture Component
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
+
+    //circle Imageview
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+    //FOR COROUTINES
+    implementation "org.jetbrains.anko:anko-sdk25-coroutines:0.10.5"
+    implementation "org.jetbrains.anko:anko-appcompat-v7-coroutines:0.10.5"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0'
+
+    //anko
+    implementation "org.jetbrains.anko:anko:0.10.5"
+    implementation "org.jetbrains.anko:anko-design:0.10.5"
+    testImplementation 'org.mockito:mockito-core:3.0.0'
+    testImplementation 'org.mockito:mockito-inline:3.0.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // Anko Commons
+    implementation "org.jetbrains.anko:anko-commons:0.10.5"
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation('com.android.support.test.espresso:espresso-contrib:3.0.2') {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+
+    // Dependencies for Android Support
+    implementation "androidx.appcompat:appcompat:1.1.0"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "com.google.android.material:material:1.1.0"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+    implementation "androidx.annotation:annotation:1.1.0"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+}
