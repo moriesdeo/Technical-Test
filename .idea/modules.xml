@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TEST_AXIATA.iml" filepath="$PROJECT_DIR$/.idea/modules/TEST_AXIATA.iml" group="TEST_AXIATA" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="TEST AXIATA/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TEST_AXIATA.iml" filepath="$PROJECT_DIR$/.idea/modules/TEST_AXIATA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TEST_AXIATA.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TEST_AXIATA.app.iml" />
     </modules>
   </component>
 </project>
