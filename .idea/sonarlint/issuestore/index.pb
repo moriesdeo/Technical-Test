@@ -13,8 +13,6 @@ d
 4app/src/test/java/com/mories/test/ExampleUnitTest.kt,8/7/87b52f8b298655528129a9e6a286ac3d3060a23f
 P
  .idea/modules/Test_Technical.iml,5/0/50d786c4de2a91ac23318624a21e4242454b3860
-x
-Happ/src/main/java/com/mories/test/repositorymodel/RepositoryMainModel.kt,7/7/7714276a67f2f7df905d5e4d91c2b0a73bf397cd
 ?
 settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 y

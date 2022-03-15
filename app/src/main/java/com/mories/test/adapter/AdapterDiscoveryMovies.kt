@@ -23,12 +23,12 @@ class AdapterDiscoveryMovies : RecyclerView.Adapter<AdapterDiscoveryMovies.VH>()
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val items = list[position]
-        holder.bind(position, items)
+        holder.bind(items)
     }
 
     inner class VH(private val binding: ItemsDiscoveryMoviesBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(position: Int, resultsItem: ResultsItem) {
+        fun bind(resultsItem: ResultsItem) {
             Glide.with(binding.root.context)
                 .load("https://image.tmdb.org/t/p/w185${resultsItem.posterPath}")
                 .into(binding.itemImgMovie)
