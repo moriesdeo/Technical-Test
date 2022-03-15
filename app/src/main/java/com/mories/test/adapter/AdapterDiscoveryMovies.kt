@@ -1,24 +1,19 @@
 package com.mories.test.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.mories.test.R
+import com.mories.test.databinding.ItemsDiscoveryMoviesBinding
 import com.mories.test.entity.ResultsItem
-import kotlinx.android.synthetic.main.items_discovery_movies.view.*
 
 class AdapterDiscoveryMovies : RecyclerView.Adapter<AdapterDiscoveryMovies.VH>() {
     private val list = arrayListOf<ResultsItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+        val layoutInflater = LayoutInflater.from(parent.context)
         return VH(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.items_discovery_movies,
-                parent,
-                false
-            )
+            ItemsDiscoveryMoviesBinding.inflate(layoutInflater, parent, false)
         )
     }
 
@@ -28,16 +23,20 @@ class AdapterDiscoveryMovies : RecyclerView.Adapter<AdapterDiscoveryMovies.VH>()
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val items = list[position]
-        with(holder.itemView) {
-            Glide.with(context).load("https://image.tmdb.org/t/p/w185${items.posterPath}")
-                .into(item_img_movie)
-            item_judul_movie.text = items.originalTitle
-            item_popularity_movie.text = "${items.popularity}"
-            item_overview_movie.text = items.overview
-        }
+        holder.bind(position, items)
     }
 
-    inner class VH(view: View) : RecyclerView.ViewHolder(view)
+    inner class VH(private val binding: ItemsDiscoveryMoviesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(position: Int, resultsItem: ResultsItem) {
+            Glide.with(binding.root.context)
+                .load("https://image.tmdb.org/t/p/w185${resultsItem.posterPath}")
+                .into(binding.itemImgMovie)
+            binding.itemJudulMovie.text = resultsItem.originalTitle
+            binding.itemPopularityMovie.text = "${resultsItem.popularity}"
+            binding.itemOverviewMovie.text = resultsItem.overview
+        }
+    }
 
     internal fun addList(mList: ArrayList<ResultsItem>) {
         list.addAll(mList)
