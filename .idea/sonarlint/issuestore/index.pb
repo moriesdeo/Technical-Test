@@ -17,8 +17,6 @@ P
 settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 y
 Iapp/src/main/java/com/mories/test/utils/PaginationLinearScrollListener.kt,d/6/d60303ce991dfb3ee56a0ebf5916119cc32407e6
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 d
 4app/src/main/java/com/mories/test/network/RestApi.kt,3/e/3e193dbefcb3106af985342c9feed176ef1e7f51
 s
