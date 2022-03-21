@@ -4,13 +4,13 @@ import android.app.Application
 import com.mories.test.BuildConfig
 import com.mories.test.entity.BaseResponse
 import com.mories.test.entity.ResultsItem
-import com.mories.test.network.RestApi
+import com.mories.test.network.ServiceApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class RepositoryMainModel(application: Application) {
-    private val service = RestApi.create()
+    private val service = ServiceApi.create()
 
     fun getDiscoveryMovies(
         onResult: (BaseResponse<List<ResultsItem>>?) -> Unit,

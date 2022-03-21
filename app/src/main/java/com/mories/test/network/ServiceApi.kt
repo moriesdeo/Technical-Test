@@ -12,10 +12,10 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
 
-interface RestApi {
+interface ServiceApi {
     companion object {
 
-        fun create(): RestApi {
+        fun create(): ServiceApi {
             val logger = HttpLoggingInterceptor()
             logger.level = HttpLoggingInterceptor.Level.BASIC
 
@@ -28,7 +28,7 @@ interface RestApi {
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(RestApi::class.java)
+                .create(ServiceApi::class.java)
         }
     }
 
