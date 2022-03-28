@@ -3,6 +3,14 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def defaultFile = file('default.properties')
+Properties defaultsProps = new Properties()
+defaultsProps.load(new FileInputStream(defaultFile))
+
+def userFile = file('user.properties')
+Properties usersProps = new Properties()
+usersProps.load(new FileInputStream(userFile))
+
 android {
     compileSdk 32
 
@@ -19,18 +27,20 @@ android {
 
     buildTypes {
         release {
-            buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/\""
-            buildConfigField "String", "TSDB_API_KEY", "\"3/\""
-            buildConfigField "String", "API_KEY", "\"d326fff658f490c8e464a6fa32642ca7\""
+            buildConfigField "String", "BASE_URL", defaultsProps['BASE_URL']
+            buildConfigField "String", "TSDB_API_KEY", defaultsProps['TSDB_API_KEY']
+            buildConfigField "String", "API_KEY", defaultsProps['API_KEY']
+            resValue "string", "app_name", usersProps['APP_NAME']
 
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         debug {
-            buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/\""
-            buildConfigField "String", "TSDB_API_KEY", "\"3/\""
-            buildConfigField "String", "API_KEY", "\"d326fff658f490c8e464a6fa32642ca7\""
+            buildConfigField "String", "BASE_URL", defaultsProps['BASE_URL']
+            buildConfigField "String", "TSDB_API_KEY", defaultsProps['TSDB_API_KEY']
+            buildConfigField "String", "API_KEY", defaultsProps['API_KEY']
+            resValue "string", "app_name", usersProps['APP_NAME']
 
             debuggable = true
         }
